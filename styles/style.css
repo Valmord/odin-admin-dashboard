@@ -43,6 +43,11 @@
       font-size: 2rem;
       font-weight: bold;
       cursor: pointer;
+      width: fit-content;
+    }
+
+    & li:hover {
+      color: aquamarine;
     }
 
     & img {
@@ -51,7 +56,7 @@
       height: 1lh;
       width: auto;
       color: aliceblue;
-      filter: invert(100%);
+      filter: invert(100%); 
     }
   }
 }
@@ -82,8 +87,13 @@
         height: 80%;
     }
   }
+}
 
-
+.header img {
+  cursor: pointer;
+}
+.header img:hover {
+  opacity: 0.6;
 }
 
 .search-bar-container {
@@ -187,13 +197,12 @@ main {
   background-color: var(--background-color);
   display: grid;
   grid-template-columns: 1fr 250px;
-  grid-template-rows: min-content min-content;
   gap: 20px;
   padding: 30px 20px;
+
 }
 
 .cards-container {
-  grid-row: 1 / -1;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -206,18 +215,21 @@ main {
   grid-auto-rows: 1fr;
   align-content: space-between;
   gap: 20px;
-  height: 100vh;
+  height: 100%;
 }
 
 .cards > .card {
-  background-color: var(--card-background-color);
   border-left: 6px orange solid;
   display: grid;
   gap: 10px;
   grid-template-rows: min-content;
 
+  & h4 {
+    font-size: 1.8rem;
+  }
+
   & p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 400;
     color: rgb(92, 92, 92);
   }
@@ -242,24 +254,40 @@ main {
   }
 }
 
+.card:hover {
+  opacity: 0.8;
+}
+
 main :is(h3,h4) {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .cards > .card,
-.announcements {
+.announcements,
+.trends {
+  background-color: var(--card-background-color);
   box-shadow: 1px 3px 4px 0px #00000021;
   border-radius: 6px;
   padding: 20px 30px;
 }
 
+.right-side-container {
+  display: grid;
+  gap: 30px;
+}
+
+.announcements-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .announcements {
+  flex: 1;
   margin-top: 10px;
-  background-color: var(--card-background-color);
   display: grid;
 
   & .announcement {
-    padding: 15px 0;
+    padding: 10px 0;
   }
 
   & .announcement > p {
@@ -269,4 +297,39 @@ main :is(h3,h4) {
 
 .announcement:nth-child(-n+2) {
   border-bottom: 1px solid lightgray;
+}
+
+.trending-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.trends {
+  flex: 1;
+  display: grid;
+  margin-top: 10px;
+}
+
+.trend {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 10px;
+  font-size: 1.2rem;
+
+  & img {
+    grid-row: 1 / 3;
+    width: auto;
+    height: 90%;
+    align-self: center;
+  }
+
+  & .handler {
+    align-self: self-end;
+  }
+
+  & p {
+    opacity: 0.6;
+  }
+
 }
